@@ -2,7 +2,9 @@ from fastapi import FastAPI, File, UploadFile, Header, HTTPException
 import whisper, shutil, os
 
 app = FastAPI()
-model = whisper.load_model("base")
+
+# Use the tiny model to fit in free Render instance memory
+model = whisper.load_model("tiny")
 
 API_KEY = os.getenv("API_KEY")
 

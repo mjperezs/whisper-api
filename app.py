@@ -6,12 +6,13 @@ import wave, json
 MODEL_PATH = "model"
 MODEL_URL = "https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip"
 
+
 # Download model if not exists
 if not os.path.exists(MODEL_PATH):
     subprocess.run(["curl", "-L", MODEL_URL, "-o", "model.zip"], check=True)
     subprocess.run(["unzip", "model.zip", "-d", "."], check=True)
     os.rename("vosk-model-small-en-us-0.15", MODEL_PATH)
-
+#definition
 app = FastAPI()
 model = Model(MODEL_PATH)
 

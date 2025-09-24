@@ -12,7 +12,7 @@ if not os.path.exists(MODEL_PATH):
     subprocess.run(["curl", "-L", MODEL_URL, "-o", "model.zip"], check=True)
     subprocess.run(["unzip", "model.zip", "-d", "."], check=True)
     os.rename("vosk-model-small-en-us-0.15", MODEL_PATH)
-#definition
+
 app = FastAPI()
 model = Model(MODEL_PATH)
 
